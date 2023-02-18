@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './App.css';
 import {YourCarComponent} from "./components/YourCars/YourCars";
 import {DelegationsComponent} from "./components/Delegations/Delegations";
@@ -18,7 +18,6 @@ export function App() {
         setShowPrivateUseComponent(false);
         setShowReportDamageComponent(false);
     };
-
     const handleDelegationsComponentClick = () => {
         setShowYourCarComponent(false);
         setShowDelegationsComponent(true);
@@ -31,7 +30,6 @@ export function App() {
         setShowPrivateUseComponent(true);
         setShowReportDamageComponent(false);
     };
-
     const handleReportDamageComponentClick = () => {
         setShowYourCarComponent(false);
         setShowDelegationsComponent(false);
@@ -39,15 +37,22 @@ export function App() {
         setShowReportDamageComponent(true);
     };
 
-
     return (
         <>
             <header>
                 <h1>Welcome to MyCarFleet</h1>
-                <button className="your-cars" onClick={handleYourCarComponentClick}>Add new car</button>
-                <button className="delegations" onClick={handleDelegationsComponentClick}>Add new delegation</button>
-                <button className="private-use" onClick={handlePrivateUseComponentClick}>Add new private use</button>
-                <button className="report-damage" onClick={handleReportDamageComponentClick}>Report damage</button>
+                    <div className={'btn-container'}>
+                        <button>Cars List</button>
+                        <button>Delegations list</button>
+                        <button>Private use list</button>
+                        <button>Damages list</button>
+                    </div>
+                    <div className={'btn-container'}>
+                        <button onClick={handleYourCarComponentClick}>Add new car</button>
+                        <button onClick={handleDelegationsComponentClick}>Add new delegation</button>
+                        <button onClick={handlePrivateUseComponentClick}>Add new private use</button>
+                        <button onClick={handleReportDamageComponentClick}>Report damage</button>
+                    </div>
             </header>
             {showYourCarComponent && <YourCarComponent/>}
             {showDelegationsComponent && <DelegationsComponent/>}

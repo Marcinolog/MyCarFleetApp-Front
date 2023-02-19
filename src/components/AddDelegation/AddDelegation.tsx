@@ -1,12 +1,11 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 export const AddDelegationComponent = () => {
-
 
     return (
         <div className='form-wrapper'>
             <h2>Add delegation</h2>
-            <form action="/delegations/" method="post"/>
+            <form action="/delegations/add-delegation" method="post"/>
             <label>
                 Delegation place<br/>
                 <input type="text" name="serviceLocation"/><br/>
@@ -27,8 +26,7 @@ export const AddDelegationComponent = () => {
                 Delegation end date<br/>
                 <input type="date" name="dateOfStart"/><br/>
             </label>
-
-            <button className="submitBtn" type="submit">Zapisz wyjazd serwisowy w bazie danych</button>
+            <button className="submitBtn" type="submit">Add delegation</button>
         </div>
     )
 }

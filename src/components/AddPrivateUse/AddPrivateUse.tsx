@@ -5,7 +5,7 @@ export const AddPrivateUseComponent = () => {
     return (
         <div className="form-wrapper">
             <h2>Add new private use</h2>
-            <form action="/private-use" method="post"/>
+            <form action="/private-use/add-private-use" method="post"/>
                 <label>
                     Worker name<br/>
                     <input type="text" name="surname"/><br/>
@@ -23,7 +23,7 @@ export const AddPrivateUseComponent = () => {
                     <input type="datetime-local" name="dateOfReturn"/><br/>
                 </label>
 
-                <button className="submitBtn" type="submit">Zapisz wypożyczenie prywatne w bazie danych</button>
+                <button className="submitBtn" type="submit">Add new private use</button>
         </div>
     )
 }

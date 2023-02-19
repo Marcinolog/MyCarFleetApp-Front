@@ -5,13 +5,19 @@ import {AddDelegationComponent} from "../AddDelegation/AddDelegation";
 import {AddPrivateUseComponent} from "../AddPrivateUse/AddPrivateUse";
 import {AddReportDamageComponent} from "../AddReportDamage/AddReportDamage";
 import {CarTableComponent} from "../CatTable/CarTable";
+import {DelegationsTableComponent} from "../DelegationsTable/DelegationsTable";
+import {PrivateUseTableComponent} from "../PrivateUseTable/PrivateUseTable";
+import {DamagesTableComponent} from "../DamagesTable/DamagesTable";
 
 enum ComponentType {
     AddNewCar,
     AddNewDelegation,
     AddPrivateUse,
     AddReportDamage,
-    CarList
+    CarList,
+    DelegationsList,
+    PrivateUseList,
+    DamagesList
 }
 
 export const Header = () => {
@@ -22,23 +28,28 @@ export const Header = () => {
     };
     return (
         <>
-        <header>
-            <h1>Welcome to MyCarFleet</h1>
-            <div className={'btn-container'}>
-                <button onClick={() => handleButtonClick(ComponentType.CarList)}>Cars List</button>
-                {/*<button onClick={() => handleButtonClick(ComponentType.Delegations)}>Delegations list</button>*/}
-                {/*<button onClick={() => handleButtonClick(ComponentType.PrivateUse)}>Private use list</button>*/}
-                {/*<button onClick={() => handleButtonClick(ComponentType.ReportDamage)}>Damage list</button>*/}
-            </div>
-            <div className={'btn-container'}>
-                <button onClick={() => handleButtonClick(ComponentType.AddNewCar)}>Add new car</button>
-                <button onClick={() => handleButtonClick(ComponentType.AddNewDelegation)}>Add new delegation</button>
-                <button onClick={() => handleButtonClick(ComponentType.AddPrivateUse)}>Add new private use</button>
-                <button onClick={() => handleButtonClick(ComponentType.AddReportDamage)}>Report damage</button>
-            </div>
+            <header>
+                <h1>Welcome to MyCarFleet</h1>
+                <div className={'btn-container'}>
+                    <button onClick={() => handleButtonClick(ComponentType.CarList)}>Cars List</button>
+                    <button onClick={() => handleButtonClick(ComponentType.DelegationsList)}>Delegations list</button>
+                    <button onClick={() => handleButtonClick(ComponentType.PrivateUseList)}>Private use list</button>
+                    <button onClick={() => handleButtonClick(ComponentType.DamagesList)}>Damage list</button>
+                </div>
+                <div className={'btn-container'}>
+                    <button onClick={() => handleButtonClick(ComponentType.AddNewCar)}>Add new car</button>
+                    <button onClick={() => handleButtonClick(ComponentType.AddNewDelegation)}>Add new delegation
+                    </button>
+                    <button onClick={() => handleButtonClick(ComponentType.AddPrivateUse)}>Add new private use</button>
+                    <button onClick={() => handleButtonClick(ComponentType.AddReportDamage)}>Report damage</button>
+                </div>
 
-        </header>
+            </header>
             {showComponent === ComponentType.CarList && <CarTableComponent/>}
+            {showComponent === ComponentType.DelegationsList && <DelegationsTableComponent/>}
+            {showComponent === ComponentType.PrivateUseList && <PrivateUseTableComponent/>}
+            {showComponent === ComponentType.DamagesList && <DamagesTableComponent/>}
+
             {showComponent === ComponentType.AddNewCar && <AddNewCarComponent/>}
             {showComponent === ComponentType.AddNewDelegation && <AddDelegationComponent/>}
             {showComponent === ComponentType.AddPrivateUse && <AddPrivateUseComponent/>}

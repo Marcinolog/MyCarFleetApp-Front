@@ -1,40 +1,39 @@
 import React, {useEffect, useState} from "react";
+import './CarTable.css'
 
 export const CarTableComponent = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        fetch("http://localhost:3001/car-info/cars")
+        fetch("http://localhost:3001/car-info/all-cars")
             .then((res) => res.json())
             .then((data) => setData(data))
     }, [])
 
     return (
         <>
-            <div>
+            <table className='car-list-wrapper'>
+                <thead>
+                <tr>
+                    <th>Plate Number</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Production Year</th>
+                    <th>Engine</th>
+                </tr>
+                </thead>
+                <tbody>
                 {data.map((d: any) => (
-                    <div key={d.id}>{d.plateNumber}</div>
+                    <tr key={d.id}>
+                        <td>{d.plateNumber}</td>
+                        <td>{d.brand}</td>
+                        <td>{d.model}</td>
+                        <td>{d.productionYear}</td>
+                        <td>{d.engine}</td>
+                    </tr>
                 ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.brand}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.model}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.productionYear}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.engine}</div>
-                ))}
-            </div>
+                </tbody>
+            </table>
+
         </>
     )
 }

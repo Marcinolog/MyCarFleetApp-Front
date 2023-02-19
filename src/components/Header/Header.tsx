@@ -4,7 +4,7 @@ import {AddNewCarComponent} from "../AddNewCar/AddNewCar";
 import {AddDelegationComponent} from "../AddDelegation/AddDelegation";
 import {AddPrivateUseComponent} from "../AddPrivateUse/AddPrivateUse";
 import {AddReportDamageComponent} from "../AddReportDamage/AddReportDamage";
-import {CarListComponent} from "../CarList/CarList";
+import {CarTableComponent} from "../CatTable/CarTable";
 
 enum ComponentType {
     AddNewCar,
@@ -38,7 +38,7 @@ export const Header = () => {
             </div>
 
         </header>
-            {showComponent === ComponentType.CarList && <CarListComponent/>}
+            {showComponent === ComponentType.CarList && <CarTableComponent/>}
             {showComponent === ComponentType.AddNewCar && <AddNewCarComponent/>}
             {showComponent === ComponentType.AddNewDelegation && <AddDelegationComponent/>}
             {showComponent === ComponentType.AddPrivateUse && <AddPrivateUseComponent/>}

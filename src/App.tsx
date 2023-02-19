@@ -6,7 +6,6 @@ import {AddPrivateUseComponent} from "./components/AddPrivateUse/AddPrivateUse";
 import {AddReportDamageComponent} from "./components/AddReportDamage/AddReportDamage";
 
 
-
 // export function App() {
 //     const [showYourCarComponent, setShowYourCarComponent] = useState(false);
 //     const [showDelegationsComponent, setShowDelegationsComponent] = useState(false);
@@ -77,6 +76,13 @@ export const App = () => {
         setShowComponent(componentType);
     };
 
+    const [data, setData] = useState([])
+    useEffect(() => {
+        fetch("http://localhost:3001/car-info/cars")
+            .then((res) => res.json())
+            .then((data) => setData(data))
+    }, [])
+
 
     return (
         <>
@@ -84,7 +90,8 @@ export const App = () => {
                 <h1>Welcome to MyCarFleet</h1>
                 <div className={'btn-container'}>
                     <button onClick={() => handleButtonClick(ComponentType.AddNewCar)}>Add new car</button>
-                    <button onClick={() => handleButtonClick(ComponentType.AddNewDelegation)}>Add new delegation</button>
+                    <button onClick={() => handleButtonClick(ComponentType.AddNewDelegation)}>Add new delegation
+                    </button>
                     <button onClick={() => handleButtonClick(ComponentType.AddPrivateUse)}>Add new private use</button>
                     <button onClick={() => handleButtonClick(ComponentType.AddReportDamage)}>Report damage</button>
                 </div>
@@ -96,10 +103,35 @@ export const App = () => {
                 </div>
 
             </header>
-            {showComponent === ComponentType.AddNewCar && <AddNewCarComponent />}
-            {showComponent === ComponentType.AddNewDelegation && <AddDelegationComponent />}
-            {showComponent === ComponentType.AddPrivateUse && <AddPrivateUseComponent />}
-            {showComponent === ComponentType.AddReportDamage && <AddReportDamageComponent />}
+            {showComponent === ComponentType.AddNewCar && <AddNewCarComponent/>}
+            {showComponent === ComponentType.AddNewDelegation && <AddDelegationComponent/>}
+            {showComponent === ComponentType.AddPrivateUse && <AddPrivateUseComponent/>}
+            {showComponent === ComponentType.AddReportDamage && <AddReportDamageComponent/>}
+            <div>
+                {data.map((d: any) => (
+                    <div key={d.id}>{d.plateNumber}</div>
+                ))}
+            </div>
+            <div>
+                {data.map((d: any) => (
+                    <div key={d.id}>{d.brand}</div>
+                ))}
+            </div>
+            <div>
+                {data.map((d: any) => (
+                    <div key={d.id}>{d.model}</div>
+                ))}
+            </div>
+            <div>
+                {data.map((d: any) => (
+                    <div key={d.id}>{d.productionYear}</div>
+                ))}
+            </div>
+            <div>
+                {data.map((d: any) => (
+                    <div key={d.id}>{d.engine}</div>
+                ))}
+            </div>
         </>
     );
 };

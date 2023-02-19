@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
-import {AddNewCarComponent} from "./components/AddNewCar/AddNewCar";
-import {AddDelegationComponent} from "./components/AddDelegation/AddDelegation";
-import {AddPrivateUseComponent} from "./components/AddPrivateUse/AddPrivateUse";
-import {AddReportDamageComponent} from "./components/AddReportDamage/AddReportDamage";
+
+import {Header} from "./components/Header/Header";
+import {ShowAddComponents} from "./components/ShowAddComponents/ShowAddComponents";
+import {CarListComponent} from "./components/CarList/CarList";
 
 
 // export function App() {
@@ -62,76 +62,14 @@ import {AddReportDamageComponent} from "./components/AddReportDamage/AddReportDa
 //     )
 // };
 
-enum ComponentType {
-    AddNewCar,
-    AddNewDelegation,
-    AddPrivateUse,
-    AddReportDamage,
-}
+
 
 export const App = () => {
-    const [showComponent, setShowComponent] = useState<ComponentType | null>(null);
-
-    const handleButtonClick = (componentType: ComponentType) => {
-        setShowComponent(componentType);
-    };
-
-    const [data, setData] = useState([])
-    useEffect(() => {
-        fetch("http://localhost:3001/car-info/cars")
-            .then((res) => res.json())
-            .then((data) => setData(data))
-    }, [])
-
 
     return (
         <>
-            <header>
-                <h1>Welcome to MyCarFleet</h1>
-                <div className={'btn-container'}>
-                    <button onClick={() => handleButtonClick(ComponentType.AddNewCar)}>Add new car</button>
-                    <button onClick={() => handleButtonClick(ComponentType.AddNewDelegation)}>Add new delegation
-                    </button>
-                    <button onClick={() => handleButtonClick(ComponentType.AddPrivateUse)}>Add new private use</button>
-                    <button onClick={() => handleButtonClick(ComponentType.AddReportDamage)}>Report damage</button>
-                </div>
-                <div className={'btn-container'}>
-                    {/*<button onClick={() => handleButtonClick(ComponentType.YourCar)}>Cars List</button>*/}
-                    {/*<button onClick={() => handleButtonClick(ComponentType.Delegations)}>Delegations list</button>*/}
-                    {/*<button onClick={() => handleButtonClick(ComponentType.PrivateUse)}>Private use list</button>*/}
-                    {/*<button onClick={() => handleButtonClick(ComponentType.ReportDamage)}>Damage list</button>*/}
-                </div>
-
-            </header>
-            {showComponent === ComponentType.AddNewCar && <AddNewCarComponent/>}
-            {showComponent === ComponentType.AddNewDelegation && <AddDelegationComponent/>}
-            {showComponent === ComponentType.AddPrivateUse && <AddPrivateUseComponent/>}
-            {showComponent === ComponentType.AddReportDamage && <AddReportDamageComponent/>}
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.plateNumber}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.brand}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.model}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.productionYear}</div>
-                ))}
-            </div>
-            <div>
-                {data.map((d: any) => (
-                    <div key={d.id}>{d.engine}</div>
-                ))}
-            </div>
+            <Header/>
+            <ShowAddComponents/>
         </>
     );
 };

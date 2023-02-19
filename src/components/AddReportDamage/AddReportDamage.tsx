@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const ReportDamageComponent = () => {
+export const AddReportDamageComponent = () => {
     return (
         <div className="form-wrapper">
             <h2>Add new damage report</h2>

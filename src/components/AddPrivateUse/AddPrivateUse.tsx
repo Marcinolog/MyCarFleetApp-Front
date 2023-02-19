@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export const PrivateUseComponent = () => {
+export const AddPrivateUseComponent = () => {
     return (
         <div className="form-wrapper">
             <h2>Add new private use</h2>

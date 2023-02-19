@@ -1,6 +1,6 @@
 import React from "react";
 
-export const YourCarComponent = () => {
+export const AddNewCarComponent = () => {
     return (
         <div className="form-wrapper">
             <h2>Add new car</h2>

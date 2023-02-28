@@ -1,6 +1,7 @@
 import React from "react";
 
 export const AddNewCarComponent = () => {
+
     return (
         <div className="form-wrapper">
             <h2>Add new car</h2>

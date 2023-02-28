@@ -48,11 +48,12 @@ export const AddDelegationComponent = () => {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:3001/car-info/add-car', formData);
+            const response = await axios.post('http://localhost:3001/delegations/add-delegation', formData);
             console.log(response.data);
         } catch (error) {
             console.log(error);
         }
+
     };
 
     const handleChange = (event: any) => {
@@ -69,7 +70,7 @@ export const AddDelegationComponent = () => {
             <form onSubmit={handleSubmit}>
                 <label>
                     Delegation place<br/>
-                    <input type="text" name="serviceLocation" value={formData.serviceLocation} onChange={handleChange} /><br/>
+                    <input type="text" name="serviceLocation" value={formData.serviceLocation} onChange={handleChange}/><br/>
                 </label>
                 <label>
                     Servicers <br/>

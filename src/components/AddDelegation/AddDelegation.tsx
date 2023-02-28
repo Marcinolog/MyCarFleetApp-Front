@@ -1,7 +1,6 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 export const AddDelegationComponent = () => {
-
     return (
         <div className='form-wrapper'>
             <h2>Add delegation</h2>

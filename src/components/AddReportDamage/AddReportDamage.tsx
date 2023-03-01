@@ -1,26 +1,62 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 
 
 export const AddReportDamageComponent = () => {
+    const [formData, setFormData] = useState({
+        damageDescription: '',
+        dateOfIncident: '',
+        placeOfIncident: '',
+        driversSurname: '',
+        carId: ''
+    });
+
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:3001/damages/add-damage', formData);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+
+    const handleChange = (event: any) => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+
+    };
+
     return (
-        <div className="form-wrapper">
-            <h2>Add new damage report</h2>
-            <form action="/private-use" method="post"/>
-            <label>
-                Damage<br/>
-                <input type="text" name="surname"/><br/>
-            </label>
-            <label>
-                Id samochodu<br/>
-                <input type="text" name="carId"/><br/>
-            </label>
-            <label>
-                Date<br/>
-                <input type="datetime-local" name="dateOfBorrow"/><br/>
-            </label>
-
-
-            <button className="submitBtn" type="submit">Save damage report</button>
+        <div className='form-wrapper'>
+            <h2>Add damage report</h2>
+            <form onSubmit={handleSubmit}>
+                <label>
+                    Damage description<br/>
+                    <textarea  name="damageDescription" value={formData.damageDescription} onChange={handleChange}/><br/>
+                </label>
+                <label>
+                    Date of incident <br/>
+                    <input type="date" name="dateOfIncident" value={formData.dateOfIncident} onChange={handleChange} /><br/>
+                </label>
+                <label>
+                    Place fo incident<br/>
+                    <textarea name="placeOfIncident" value={formData.placeOfIncident} onChange={handleChange} /><br/>
+                </label>
+                <label>
+                    Driver surname<br/>
+                    <input type="text" name="driversSurname" value={formData.driversSurname} onChange={handleChange} /><br/>
+                </label>
+                <label>
+                    Car ID<br/>
+                    <input type="text" name="carId" value={formData.carId} onChange={handleChange} /><br/>
+                </label>
+                <button className="submitBtn" type="submit" onClick={handleChange}>Add new damage report</button>
+            </form>
         </div>
     )
 }

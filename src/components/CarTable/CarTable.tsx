@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from "react";
 import './CarTable.css'
+import axios from "axios";
 
 export const CarTableComponent = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+
     useEffect(() => {
-        fetch("http://localhost:3001/car-info/all-cars")
-            .then((res) => res.json())
-            .then((data) => setData(data))
-    }, [])
+        axios.get('http://localhost:3001/cars/all-cars')
+            .then((response) => {
+                setData(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <>

@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from "react";
 import './DamagesTable.css'
+import axios from "axios";
 
 export const DamagesTableComponent = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+
     useEffect(() => {
-        fetch("http://localhost:3001/damages/all-damages")
-            .then((res) => res.json())
-            .then((data) => setData(data))
-    }, [])
+        axios.get('http://localhost:3001/damages/all-damages')
+            .then((response) => {
+                setData(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <>

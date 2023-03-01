@@ -1,29 +1,57 @@
-import React from "react";
+import React, {useState} from "react";
+import axios from "axios";
 
 
 export const AddPrivateUseComponent = () => {
+    const [formData, setFormData] = useState({
+        surname: '',
+        carId: '',
+        dateOfBorrow: '',
+        dateOfReturn: ''
+    });
+
+    const handleSubmit = async (event: any) => {
+        event.preventDefault();
+
+        try {
+            const response = await axios.post('http://localhost:3001/private-uses/add-private-use', formData);
+            console.log(response.data);
+        } catch (error) {
+            console.log(error);
+        }
+
+    };
+
+    const handleChange = (event: any) => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value
+        });
+
+    };
+
     return (
-        <div className="form-wrapper">
-            <h2>Add new private use</h2>
-            <form action="/private-use/add-private-use" method="post"/>
+        <div className='form-wrapper'>
+            <h2>Add private use</h2>
+            <form onSubmit={handleSubmit}>
                 <label>
                     Worker name<br/>
-                    <input type="text" name="surname"/><br/>
+                    <input type="text" name="surname" value={formData.surname} onChange={handleChange}/><br/>
                 </label>
                 <label>
                     Car ID<br/>
-                    <input type="text" name="carId"/><br/>
+                    <input type="text" name="carId" value={formData.carId} onChange={handleChange} /><br/>
                 </label>
                 <label>
-                    Borrow date<br/>
-                    <input type="datetime-local" name="dateOfBorrow"/><br/>
+                    Date of borrow<br/>
+                    <input type="date" name="dateOfBorrow" value={formData.dateOfBorrow} onChange={handleChange} /><br/>
                 </label>
                 <label>
-                    Return date<br/>
-                    <input type="datetime-local" name="dateOfReturn"/><br/>
+                    Date of return<br/>
+                    <input type="date" name="dateOfReturn" value={formData.dateOfReturn} onChange={handleChange} /><br/>
                 </label>
-
-                <button className="submitBtn" type="submit">Add new private use</button>
+                <button className="submitBtn" type="submit" onClick={handleChange}>Add new private use</button>
+            </form>
         </div>
     )
 }

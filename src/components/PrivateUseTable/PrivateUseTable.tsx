@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from "react";
 import './PrivateUseTable.css'
+import axios from "axios";
 
 export const PrivateUseTableComponent = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+
     useEffect(() => {
-        fetch("http://localhost:3001/private-use/all-private-use")
-            .then((res) => res.json())
-            .then((data) => setData(data))
-    }, [])
+        axios.get('http://localhost:3001/private-uses/all-private-use')
+            .then((response) => {
+                setData(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <>

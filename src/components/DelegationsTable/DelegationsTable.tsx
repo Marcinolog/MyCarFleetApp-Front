@@ -1,13 +1,19 @@
 import React, {useEffect, useState} from "react";
 import './DelegationsTable.css'
+import axios from "axios";
 
 export const DelegationsTableComponent = () => {
-    const [data, setData] = useState([])
+    const [data, setData] = useState([]);
+
     useEffect(() => {
-        fetch("http://localhost:3001/delegations/all-delegations")
-            .then((res) => res.json())
-            .then((data) => setData(data))
-    }, [])
+        axios.get('http://localhost:3001/delegations/all-delegations')
+            .then((response) => {
+                setData(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }, []);
 
     return (
         <>

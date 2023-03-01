@@ -4,7 +4,7 @@ export const AddNewCarComponent = () => {
     return (
         <div className="form-wrapper">
             <h2>Add new car</h2>
-            <form action="/car-info/" method="post">
+            <form action="/car-info/add-car" method="post">
                 <label>
                     Plate number<br/>
                     <input type="text" name="plateNumber"/><br/>
@@ -25,8 +25,9 @@ export const AddNewCarComponent = () => {
                     Engine<br/>
                     <input type="text" name="engine"/><br/>
                 </label>
-                <button className="submitBtn" type="submit">Zapisz auto w bazie danych</button>
+                <button className="submitBtn" type="submit">Save new car</button>
             </form>
         </div>
     )
 }
+

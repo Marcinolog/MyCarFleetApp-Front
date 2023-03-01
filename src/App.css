@@ -1,20 +1,46 @@
-header{
-  display: flex;
-  flex-direction: column;
-  background: rgb(121, 0, 240);
-  padding: 13px;
-  color: white;
-  text-align: center;
+.form-wrapper {
+    width: 85%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
 }
 
-button {
-  background: rgb(49, 159, 9);
-  font-size: 1rem;
-  margin: 15px;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 400;
-  padding: 2px 35px;
+.form-wrapper h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-wrapper label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.form-wrapper input [type="text"], input[type="date"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.form-wrapper button.submitBtn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+.form-wrapper button.submitBtn:hover {
+    background-color: #3e8e41;
 }

@@ -28,7 +28,7 @@ export const AddDelegationComponent = () => {
     };
 
     return (
-        <div className='form-wrapper'>
+        <div className='add-form-wrapper'>
             <h2>Add delegation</h2>
             <form onSubmit={handleSubmit}>
                 <label>

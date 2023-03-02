@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import './PrivateUseTable.css'
 import axios from "axios";
 
 export const PrivateUseTableComponent = () => {
@@ -17,7 +16,7 @@ export const PrivateUseTableComponent = () => {
 
     return (
         <>
-            <table className='private-use-list-wrapper'>
+            <table className='table-wrapper'>
                 <thead>
                 <tr>
                     <th>Surname</th>

@@ -1,4 +1,4 @@
-.form-wrapper {
+.add-form-wrapper {
     width: 85%;
     max-width: 600px;
     margin: 0 auto;
@@ -7,19 +7,19 @@
     border-radius: 5px;
 }
 
-.form-wrapper h2 {
+.add-form-wrapper h2 {
     font-size: 24px;
     margin-bottom: 20px;
     text-align: center;
 }
 
-.form-wrapper label {
+.add-form-wrapper label {
     display: block;
     margin-bottom: 10px;
     font-size: 16px;
 }
 
-.form-wrapper input [type="text"], input[type="date"] {
+.add-form-wrapper input [type="text"], input[type="date"] {
     display: block;
     width: 100%;
     padding: 10px;
@@ -29,7 +29,7 @@
     margin-bottom: 20px;
 }
 
-.form-wrapper button.submitBtn {
+.add-form-wrapper button.submitBtn {
     display: block;
     width: 100%;
     padding: 10px;
@@ -41,6 +41,30 @@
     cursor: pointer;
 }
 
-.form-wrapper button.submitBtn:hover {
+.add-form-wrapper button.submitBtn:hover {
     background-color: #3e8e41;
+}
+
+.table-wrapper {
+    position: absolute;
+    top:0;
+    right: 0;
+    width: 85%;
+    border-collapse: collapse;
+    margin-bottom: 1em;
+}
+
+.table-wrapper th, td {
+    padding: 0.5em;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.table-wrapper th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.table-wrapper tr:nth-child(even) {
+    background-color: #f2f2f2;
 }

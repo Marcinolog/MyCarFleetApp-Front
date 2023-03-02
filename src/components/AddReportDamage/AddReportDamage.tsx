@@ -29,7 +29,7 @@ export const AddReportDamageComponent = () => {
     };
 
     return (
-        <div className='form-wrapper'>
+        <div className='add-form-wrapper'>
             <h2>Add damage report</h2>
             <form onSubmit={handleSubmit}>
                 <label>

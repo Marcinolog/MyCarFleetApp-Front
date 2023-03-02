@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import './CarTable.css'
 import axios from "axios";
 
 export const CarTableComponent = () => {
@@ -17,7 +16,7 @@ export const CarTableComponent = () => {
 
     return (
         <>
-            <table className='car-list-wrapper'>
+            <table className='table-wrapper'>
                 <thead>
                 <tr>
                     <th>Plate Number</th>

@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import './DamagesTable.css'
 import axios from "axios";
 
 export const DamagesTableComponent = () => {
@@ -17,7 +16,7 @@ export const DamagesTableComponent = () => {
 
     return (
         <>
-            <table className='delegations-list-wrapper'>
+            <table className='table-wrapper'>
                 <thead>
                 <tr>
                     <th>Car plate number</th>

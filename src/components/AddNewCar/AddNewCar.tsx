@@ -30,7 +30,7 @@ export const AddNewCarComponent = () => {
     };
 
     return (
-        <div className='form-wrapper'>
+        <div className='add-form-wrapper'>
             <h2>Add new car</h2>
             <form onSubmit={handleSubmit}>
                 <label>

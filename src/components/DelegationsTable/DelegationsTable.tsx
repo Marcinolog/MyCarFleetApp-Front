@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from "react";
-import './DelegationsTable.css'
 import axios from "axios";
 
 export const DelegationsTableComponent = () => {
@@ -17,7 +16,7 @@ export const DelegationsTableComponent = () => {
 
     return (
         <>
-            <table className='delegations-list-wrapper'>
+            <table className='table-wrapper'>
                 <thead>
                 <tr>
                     <th>Service location</th>

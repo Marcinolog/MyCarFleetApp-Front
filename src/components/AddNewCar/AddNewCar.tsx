@@ -14,7 +14,6 @@ export const AddNewCarComponent = () => {
 
     const handleSubmit = async (event: any) => {
         event.preventDefault();
-
         try {
             const response = await axios.post('http://localhost:3001/cars/add-car', formData);
             console.log(response.data);
@@ -28,8 +27,7 @@ export const AddNewCarComponent = () => {
             ...formData,
             [event.target.name]: event.target.value
         });
-
-    }
+    };
 
     return (
         <div className='form-wrapper'>
@@ -49,7 +47,8 @@ export const AddNewCarComponent = () => {
                 </label>
                 <label>
                     Production year<br/>
-                    <input type="text" name="productionYear" value={formData.productionYear} onChange={handleChange}/><br/>
+                    <input type="text" name="productionYear" value={formData.productionYear}
+                           onChange={handleChange}/><br/>
                 </label>
                 <label>
                     Engine<br/>
@@ -59,7 +58,7 @@ export const AddNewCarComponent = () => {
             </form>
         </div>
     )
-}
+};
 
 
 

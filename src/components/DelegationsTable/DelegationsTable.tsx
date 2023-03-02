@@ -20,10 +20,9 @@ export const DelegationsTableComponent = () => {
             <table className='delegations-list-wrapper'>
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Servicers</th>
-                    <th>carId</th>
                     <th>Service location</th>
+                    <th>Servicers</th>
+                    <th>Car plate number</th>
                     <th>Start date</th>
                     <th>End date</th>
                 </tr>
@@ -31,17 +30,15 @@ export const DelegationsTableComponent = () => {
                 <tbody>
                 {data.map((d: any) => (
                     <tr key={d.id}>
-                        <td>{d.id}</td>
-                        <td>{d.servicers}</td>
-                        <td>{d.carId}</td>
                         <td>{d.serviceLocation}</td>
+                        <td>{d.servicers}</td>
+                        <td>{d.carPlateNumber}</td>
                         <td>{d.dateOfStart}</td>
                         <td>{d.dateOfEnd}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-
         </>
     )
-}
+};

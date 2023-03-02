@@ -20,9 +20,8 @@ export const PrivateUseTableComponent = () => {
             <table className='private-use-list-wrapper'>
                 <thead>
                 <tr>
-                    <th>Id</th>
                     <th>Surname</th>
-                    <th>carId</th>
+                    <th>Car plate number</th>
                     <th>Borrow date</th>
                     <th>Return date</th>
                 </tr>
@@ -30,9 +29,8 @@ export const PrivateUseTableComponent = () => {
                 <tbody>
                 {data.map((d: any) => (
                     <tr key={d.id}>
-                        <td>{d.id}</td>
                         <td>{d.surname}</td>
-                        <td>{d.carId}</td>
+                        <td>{d.carPlateNumber}</td>
                         <td>{d.dateOfBorrow}</td>
                         <td>{d.dateOfReturn}</td>
                     </tr>
@@ -42,4 +40,4 @@ export const PrivateUseTableComponent = () => {
 
         </>
     )
-}
+};

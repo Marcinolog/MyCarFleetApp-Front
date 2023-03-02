@@ -20,29 +20,25 @@ export const DamagesTableComponent = () => {
             <table className='delegations-list-wrapper'>
                 <thead>
                 <tr>
-                    <th>Id</th>
-                    <th>Car Id</th>
+                    <th>Car plate number</th>
                     <th>Damage description</th>
                     <th>Incident date</th>
                     <th>Incident place</th>
                     <th>Drivers surname</th>
-
                 </tr>
                 </thead>
                 <tbody>
                 {data.map((d: any) => (
                     <tr key={d.id}>
-                        <td>{d.id}</td>
-                        <td>{d.carId}</td>
+                        <td>{d.carPlateNumber}</td>
                         <td>{d.damageDescription}</td>
                         <td>{d.dateOfIncident}</td>
                         <td>{d.placeOfIncident}</td>
-                        <td>{d.driverSurname}</td>
+                        <td>{d.driversSurname}</td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-
         </>
     )
-}
+};

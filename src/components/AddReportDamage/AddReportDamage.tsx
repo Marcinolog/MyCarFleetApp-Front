@@ -51,7 +51,7 @@ export const AddReportDamageComponent = () => {
                            onChange={handleChange}/><br/>
                 </label>
                 <label>
-                    Car ID<br/>
+                    Car plate number<br/>
                     <input type="text" name="carPlateNumber" value={formData.carPlateNumber}
                            onChange={handleChange}/><br/>
                 </label>
